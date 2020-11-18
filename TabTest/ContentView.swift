@@ -10,14 +10,8 @@ import SwiftUI
 struct Page : View
 {
     let id:Int
-    @State var count = 0
     var body: some View {
         Text("View\(id)")
-            .onAppear
-            {
-                count += 1
-                print("View\(id) appeared \(count)")
-            }
     }
 }
 
@@ -45,12 +39,17 @@ struct ContentView: View {
     @State var count = 0
     @State var count_tab_view = 0
     
+    @State var count_v0 = 0
+    @State var count_v1 = 0
+    @State var count_v2 = 0
+    
     let w_view = UUID()
     let tab_view = UUID()
     
     let p0_view = UUID()
     let p1_view = UUID()
     let p2_view = UUID()
+    
     
     func get_title(_ s:Int) -> String
     {
@@ -70,12 +69,27 @@ struct ContentView: View {
                 Page(id: 0)
                     .tag(0)
                     .id(p0_view)
+                    .onAppear
+                    {
+                        count_v0 += 1
+                        print("View0 appeared \(count_v0)")
+                    }
                 Page(id: 1)
                     .tag(1)
                     .id(p1_view)
+                    .onAppear
+                    {
+                        count_v1 += 1
+                        print("View1 appeared \(count_v1)")
+                    }
                 Page(id: 2)
                     .tag(2)
                     .id(p2_view)
+                    .onAppear
+                    {
+                        count_v2 += 1
+                        print("View2 appeared \(count_v2)")
+                    }
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .id(tab_view)
             .onAppear
