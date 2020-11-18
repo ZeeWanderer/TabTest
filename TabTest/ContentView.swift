@@ -12,7 +12,7 @@ struct Page : View
     let id:Int
     @State var count = 0
     var body: some View {
-        Text("test")
+        Text("View\(id)")
             .onAppear
             {
                 count += 1
