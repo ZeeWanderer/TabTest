@@ -42,6 +42,8 @@ struct WrapperView<Content>: View where Content: View
 
 struct ContentView: View {
     @State var selection = 0
+    @State var count = 0
+    @State var count_tab_view = 0
     
     let w_view = UUID()
     let tab_view = UUID()
@@ -76,7 +78,17 @@ struct ContentView: View {
                     .id(p2_view)
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             .id(tab_view)
+            .onAppear
+            {
+                count_tab_view += 1
+                print("TabView appeared \(count_tab_view)")
+            }
         }.id(w_view)
+        .onAppear
+        {
+            count += 1
+            print("WrapperView appeared \(count)")
+        }
     }
 }
 
