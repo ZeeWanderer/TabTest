@@ -67,24 +67,18 @@ struct ContentView: View {
             TabView(selection: $selection)
             {
                 Page(id: 0)
-                    .tag(0)
-                    .id(p0_view)
                     .onAppear
                     {
                         count_v0 += 1
                         print("View0 appeared \(count_v0)")
                     }
                 Page(id: 1)
-                    .tag(1)
-                    .id(p1_view)
                     .onAppear
                     {
                         count_v1 += 1
                         print("View1 appeared \(count_v1)")
                     }
                 Page(id: 2)
-                    .tag(2)
-                    .id(p2_view)
                     .onAppear
                     {
                         count_v2 += 1
